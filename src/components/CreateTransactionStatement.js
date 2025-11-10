@@ -398,10 +398,13 @@ function CreateTransactionStatement({ user, onBack }) {
     const handleToothInfoChange = (itemId, newToothInfo) => {
         setItems(items.map(item => {
             if (item.id === itemId) {
+                const newCount = parseToothCount(newToothInfo);
+                const price = newCount * (item.unitPrice || 0);
                 return {
                     ...item,
                     toothInfo: newToothInfo,
-                    toothCount: parseToothCount(newToothInfo)
+                    toothCount: newCount,
+                    price: price
                 };
             }
             return item;
