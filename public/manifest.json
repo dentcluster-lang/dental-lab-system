@@ -1,0 +1,34 @@
+{
+  "short_name": "DentConnect",
+  "name": "DentConnect - 치과 기공소 연결 플랫폼",
+  "description": "치과와 기공소를 연결하는 스마트 플랫폼",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64 32x32 24x24 16x16",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "logo192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "logo512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#2563eb",
+  "background_color": "#ffffff",
+  "orientation": "portrait-primary",
+  "categories": ["business", "productivity", "medical"],
+  "lang": "ko-KR",
+  "dir": "ltr",
+  "scope": "/",
+  "prefer_related_applications": false
+}
