@@ -12,6 +12,13 @@ import ChatListScreen from '../screens/ChatListScreen';
 import ProfileScreen from '../screens/ProfileScreen';
 import LoginScreen from '../screens/LoginScreen';
 import RegisterScreen from '../screens/RegisterScreen';
+import MarketplaceScreen from '../screens/MarketplaceScreen';
+import StatisticsScreen from '../screens/StatisticsScreen';
+import TransactionStatementScreen from '../screens/TransactionStatementScreen';
+import JobBoardScreen from '../screens/JobBoardScreen';
+import SeminarScreen from '../screens/SeminarScreen';
+import UsedItemsScreen from '../screens/UsedItemsScreen';
+import LabDirectoryScreen from '../screens/LabDirectoryScreen';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -24,6 +31,41 @@ function HomeStack() {
         name="HomeMain"
         component={HomeScreen}
         options={{ title: '홈' }}
+      />
+      <Stack.Screen
+        name="Marketplace"
+        component={MarketplaceScreen}
+        options={{ title: '마켓플레이스' }}
+      />
+      <Stack.Screen
+        name="Statistics"
+        component={StatisticsScreen}
+        options={{ title: '통계' }}
+      />
+      <Stack.Screen
+        name="TransactionStatement"
+        component={TransactionStatementScreen}
+        options={{ title: '거래명세서' }}
+      />
+      <Stack.Screen
+        name="JobBoard"
+        component={JobBoardScreen}
+        options={{ title: '구인/구직' }}
+      />
+      <Stack.Screen
+        name="Seminar"
+        component={SeminarScreen}
+        options={{ title: '세미나' }}
+      />
+      <Stack.Screen
+        name="UsedItems"
+        component={UsedItemsScreen}
+        options={{ title: '중고 물품' }}
+      />
+      <Stack.Screen
+        name="LabDirectory"
+        component={LabDirectoryScreen}
+        options={{ title: '기공소 찾기' }}
       />
     </Stack.Navigator>
   );

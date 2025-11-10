@@ -110,9 +110,8 @@ export default function HomeScreen({ navigation }) {
   ];
 
   const handleMenuPress = (screen) => {
-    if (screen) {
-      // TODO: 해당 화면으로 네비게이션
-      console.log('Navigate to:', screen);
+    if (screen && navigation) {
+      navigation.navigate(screen);
     }
   };
 
