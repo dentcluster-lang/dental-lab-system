@@ -9,7 +9,7 @@ import {
     User, Package, Star, Briefcase, GraduationCap,
     ShoppingBag, MessageSquare, FilePlus, UserPlus,
     Megaphone, CheckCircle, Building, AlertCircle,
-    Lock, Search, Shield, Recycle, Plus
+    Lock, Search, Shield, Recycle, Plus, Settings
 } from 'lucide-react';
 import './MainLayout.css';
 import './PinModal.css';
@@ -182,7 +182,8 @@ function MainLayout({ children, user, currentPage, refreshUserData }) {
                     items: [
                         { name: '기공소 홍보 승인', icon: <Building2 size={20} />, path: '/admin/lab-approval' },
                         { name: '구인공고 승인', icon: <Briefcase size={20} />, path: '/admin/job-posting-approval' },
-                        { name: '마켓플레이스 승인', icon: <ShoppingBag size={20} />, path: '/admin/marketplace-approval' }
+                        { name: '마켓플레이스 승인', icon: <ShoppingBag size={20} />, path: '/admin/marketplace-approval' },
+                        { name: '결제 금액 설정', icon: <Settings size={20} />, path: '/admin/payment-settings' }
                     ]
                 },
                 {
@@ -296,7 +297,8 @@ function MainLayout({ children, user, currentPage, refreshUserData }) {
                         { name: '기공소 홍보 승인', icon: <Building size={20} />, path: '/admin/lab-approval' },
                         { name: '기공소 찾기 관리', icon: <Search size={20} />, path: '/admin/lab-directory' },
                         { name: '구인공고 승인', icon: <Briefcase size={20} />, path: '/admin/job-posting-approval' },
-                        { name: '마켓플레이스 승인', icon: <ShoppingBag size={20} />, path: '/admin/marketplace-approval' }
+                        { name: '마켓플레이스 승인', icon: <ShoppingBag size={20} />, path: '/admin/marketplace-approval' },
+                        { name: '결제 금액 설정', icon: <Settings size={20} />, path: '/admin/payment-settings' }
                     ]
                 });
             }
@@ -366,7 +368,8 @@ function MainLayout({ children, user, currentPage, refreshUserData }) {
                         { name: '기공소 홍보 승인', icon: <Building size={20} />, path: '/admin/lab-approval' },
                         { name: '기공소 찾기 관리', icon: <Search size={20} />, path: '/admin/lab-directory' },
                         { name: '구인공고 승인', icon: <Briefcase size={20} />, path: '/admin/job-posting-approval' },
-                        { name: '마켓플레이스 승인', icon: <ShoppingBag size={20} />, path: '/admin/marketplace-approval' }
+                        { name: '마켓플레이스 승인', icon: <ShoppingBag size={20} />, path: '/admin/marketplace-approval' },
+                        { name: '결제 금액 설정', icon: <Settings size={20} />, path: '/admin/payment-settings' }
                     ]
                 });
             }
@@ -422,7 +425,8 @@ function MainLayout({ children, user, currentPage, refreshUserData }) {
                         { name: '기공소 홍보 승인', icon: <Building size={20} />, path: '/admin/lab-approval' },
                         { name: '기공소 찾기 관리', icon: <Search size={20} />, path: '/admin/lab-directory' },
                         { name: '구인공고 승인', icon: <Briefcase size={20} />, path: '/admin/job-posting-approval' },
-                        { name: '마켓플레이스 승인', icon: <ShoppingBag size={20} />, path: '/admin/marketplace-approval' }
+                        { name: '마켓플레이스 승인', icon: <ShoppingBag size={20} />, path: '/admin/marketplace-approval' },
+                        { name: '결제 금액 설정', icon: <Settings size={20} />, path: '/admin/payment-settings' }
                     ]
                 });
             }
