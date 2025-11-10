@@ -54,6 +54,7 @@ import AdminLabApproval from './components/admin/AdminLabApproval';
 import AdminLabDirectory from './components/admin/AdminLabDirectory';
 import AdminJobPostingApproval from './components/admin/AdminJobPostingApproval';
 import AdminMarketplaceApproval from './components/admin/AdminMarketplaceApproval';
+import AdminPaymentSettings from './components/admin/AdminPaymentSettings';
 import UsedItemsList from './components/UsedItemsList';
 import UsedItemRegistration from './components/UsedItemRegistration';
 import UsedItemDetail from './components/UsedItemDetail';
@@ -484,6 +485,12 @@ function App() {
                     <Route
                       path="/admin/marketplace-approval"
                       element={<AdminMarketplaceApproval user={userData} />}
+                    />
+
+                    {/* 🆕 관리자 결제 금액 설정 */}
+                    <Route
+                      path="/admin/payment-settings"
+                      element={<AdminPaymentSettings userInfo={userData} />}
                     />
 
                     {/* 광고 등록 */}

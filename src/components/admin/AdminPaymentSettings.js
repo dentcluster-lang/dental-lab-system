@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { doc, getDoc, setDoc, serverTimestamp } from 'firebase/firestore';
-import { db } from '../firebase/config';
+import { db } from '../../firebase/config';
 import {
     DollarSign, Save, Settings, Calendar, Percent,
     AlertCircle, CheckCircle, RefreshCw
