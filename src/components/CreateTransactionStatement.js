@@ -292,7 +292,8 @@ function CreateTransactionStatement({ user, onBack }) {
                             toothCount: toothCount,
                             isRemake: order.isRemake || false,
                             remakeReason: order.remakeReason || '',
-                            price: 0
+                            unitPrice: 0, // 단가
+                            price: 0 // 자동 계산될 합계
                         });
                     });
                 } else {
@@ -311,7 +312,8 @@ function CreateTransactionStatement({ user, onBack }) {
                         toothCount: 0,
                         isRemake: order.isRemake || false,
                         remakeReason: order.remakeReason || '',
-                        price: 0
+                        unitPrice: 0, // 단가
+                        price: 0 // 자동 계산될 합계
                     });
                 }
             });
@@ -340,7 +342,7 @@ function CreateTransactionStatement({ user, onBack }) {
 
         const selectedClinicName = clinics.find(c => c.id === selectedClinic)?.name || '업체';
         
-        let csv = '작성일,마감일,환자명,치아정보,치아개수,가격\n';
+        let csv = '작성일,마감일,환자명,치아정보,치아개수,단가,합계\n';
 
         items.forEach(item => {
             const date = formatDate(item.createdAt);
@@ -348,9 +350,10 @@ function CreateTransactionStatement({ user, onBack }) {
             const patientName = item.patientName || '-';
             const toothInfo = (item.toothInfo || '-').replace(/,/g, ';'); // CSV 구분자 충돌 방지
             const toothCount = item.toothCount || 0;
+            const unitPrice = item.unitPrice || 0;
             const price = item.price || 0;
 
-            csv += `${date},${dueDate},${patientName},"${toothInfo}",${toothCount},${price}\n`;
+            csv += `${date},${dueDate},${patientName},"${toothInfo}",${toothCount},${unitPrice},${price}\n`;
         });
 
         const { subtotal, discountAmount, total, totalTeeth } = calculateTotal();
@@ -378,13 +381,18 @@ function CreateTransactionStatement({ user, onBack }) {
         return `${date.getMonth() + 1}-${date.getDate()}`;
     };
 
-    const handlePriceChange = (itemId, newPrice) => {
-        const price = Number(newPrice) || 0;
-        if (price < 0) return; // 음수 방지
-        
-        setItems(items.map(item => 
-            item.id === itemId ? { ...item, price } : item
-        ));
+    // 🔥 단가 변경 시 가격 자동 계산
+    const handleUnitPriceChange = (itemId, newUnitPrice) => {
+        const unitPrice = Number(newUnitPrice) || 0;
+        if (unitPrice < 0) return; // 음수 방지
+
+        setItems(items.map(item => {
+            if (item.id === itemId) {
+                const price = item.toothCount * unitPrice;
+                return { ...item, unitPrice, price };
+            }
+            return item;
+        }));
     };
 
     const handleToothInfoChange = (itemId, newToothInfo) => {
@@ -400,13 +408,18 @@ function CreateTransactionStatement({ user, onBack }) {
         }));
     };
 
+    // 🔥 치아 개수 변경 시 가격 자동 재계산
     const handleToothCountChange = (itemId, newCount) => {
         const count = Number(newCount) || 0;
         if (count < 0) return; // 음수 방지
-        
-        setItems(items.map(item => 
-            item.id === itemId ? { ...item, toothCount: count } : item
-        ));
+
+        setItems(items.map(item => {
+            if (item.id === itemId) {
+                const price = count * (item.unitPrice || 0);
+                return { ...item, toothCount: count, price };
+            }
+            return item;
+        }));
     };
 
     const handleDeleteItem = (itemId) => {
@@ -426,7 +439,8 @@ function CreateTransactionStatement({ user, onBack }) {
             toothCount: 0,
             isRemake: false,
             remakeReason: '',
-            price: 0
+            unitPrice: 0, // 단가
+            price: 0 // 합계
         };
         setItems([...items, newItem]);
         setEditingItemId(newItem.id);
@@ -486,6 +500,7 @@ function CreateTransactionStatement({ user, onBack }) {
                     toothCount: item.toothCount,
                     isRemake: item.isRemake,
                     remakeReason: item.remakeReason,
+                    unitPrice: item.unitPrice, // 단가 저장
                     price: item.price
                 })),
                 subtotal,
@@ -555,6 +570,7 @@ function CreateTransactionStatement({ user, onBack }) {
                     toothCount: item.toothCount,
                     isRemake: item.isRemake,
                     remakeReason: item.remakeReason,
+                    unitPrice: item.unitPrice, // 단가 저장
                     price: item.price
                 })),
                 subtotal,
@@ -768,7 +784,8 @@ function CreateTransactionStatement({ user, onBack }) {
                                         <th style={{...styles.th, width: '100px'}}>환자명</th>
                                         <th style={{...styles.th, width: 'auto', minWidth: '250px'}}>치아정보</th>
                                         <th style={{...styles.th, width: '60px'}}>개수</th>
-                                        <th style={{...styles.th, width: '140px'}}>가격</th>
+                                        <th style={{...styles.th, width: '120px'}}>단가</th>
+                                        <th style={{...styles.th, width: '120px'}}>합계</th>
                                         <th className="no-print" style={{...styles.th, width: '80px'}}>작업</th>
                                     </tr>
                                 </thead>
@@ -897,16 +914,23 @@ function CreateTransactionStatement({ user, onBack }) {
                                                         )}
                                                     </td>
                                                     
-                                                    {/* 가격 */}
+                                                    {/* 단가 */}
                                                     <td style={styles.td}>
                                                         <input
                                                             type="number"
-                                                            value={item.price}
-                                                            onChange={(e) => handlePriceChange(item.id, e.target.value)}
+                                                            value={item.unitPrice || 0}
+                                                            onChange={(e) => handleUnitPriceChange(item.id, e.target.value)}
                                                             style={styles.priceInput}
                                                             placeholder="0"
                                                             min="0"
                                                         />
+                                                    </td>
+
+                                                    {/* 합계 (자동 계산) */}
+                                                    <td style={styles.tdRight}>
+                                                        <span style={styles.calculatedPrice}>
+                                                            {formatCurrency(item.price || 0)}원
+                                                        </span>
                                                     </td>
                                                     
                                                     {/* 작업 */}
@@ -1250,6 +1274,13 @@ const styles = {
         textAlign: 'center',
         verticalAlign: 'middle',
     },
+    tdRight: {
+        padding: '12px',
+        fontSize: '14px',
+        color: '#0f172a',
+        textAlign: 'right',
+        verticalAlign: 'middle',
+    },
     priceInput: {
         width: '100%',
         padding: '6px 8px',
@@ -1258,6 +1289,11 @@ const styles = {
         fontSize: '14px',
         boxSizing: 'border-box',
         textAlign: 'right',
+    },
+    calculatedPrice: {
+        fontSize: '14px',
+        fontWeight: '600',
+        color: '#6366f1',
     },
     actionButtons: {
         display: 'flex',
