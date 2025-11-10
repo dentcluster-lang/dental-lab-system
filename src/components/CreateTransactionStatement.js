@@ -912,7 +912,7 @@ function CreateTransactionStatement({ user, onBack }) {
                                                             />
                                                         ) : (
                                                             <span style={styles.toothCountBadge}>
-                                                                {item.toothCount || 0}개
+                                                                {item.toothCount || 0}
                                                             </span>
                                                         )}
                                                     </td>
