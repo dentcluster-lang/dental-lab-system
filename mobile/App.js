@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { StatusBar } from 'expo-status-bar';
+import { StatusBar } from 'react-native';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth } from './src/config/firebase';
 import AppNavigator from './src/navigation/AppNavigator';
@@ -26,7 +26,7 @@ export default function App() {
 
   return (
     <>
-      <StatusBar style="dark" />
+      <StatusBar barStyle="dark-content" backgroundColor="#fff" />
       <AppNavigator isAuthenticated={isAuthenticated} />
     </>
   );
