@@ -1,0 +1,101 @@
+/* Register.css */
+
+/* 애니메이션 */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 호버 효과 */
+.register-box button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.register-box input:focus {
+    outline: none;
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .register-box {
+        padding: 30px 20px;
+    }
+
+    .type-selection {
+        grid-template-columns: 1fr;
+    }
+
+    .business-type-buttons {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 유틸리티 클래스 */
+.text-center {
+    text-align: center;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+/* 추가 스타일 */
+.register-box {
+    animation: fadeIn 0.3s ease-out;
+}
+
+.type-card:hover {
+    cursor: pointer;
+    border-color: #cbd5e1;
+}
+
+.business-type-button:hover {
+    border-color: #cbd5e1;
+    background-color: #f8fafc;
+}
+
+input::placeholder {
+    color: #94a3b8;
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+button:disabled:hover {
+    transform: none;
+    box-shadow: none;
+}
