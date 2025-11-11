@@ -5,7 +5,7 @@
     "1. https://console.firebase.google.com 접속",
     "2. 프로젝트 선택",
     "3. 프로젝트 설정 → Android 앱 추가",
-    "4. Android 패키지 이름: com.dentallabmobile",
+    "4. Android 패키지 이름: com.dentalsystemmobile",
     "5. google-services.json 다운로드",
     "6. 다운로드한 파일을 여기로 복사:",
     "   cp ~/Downloads/google-services.json ~/dental-lab-system/mobile/android/app/",
@@ -24,7 +24,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:YOUR_PROJECT_NUMBER:android:YOUR_APP_ID",
         "android_client_info": {
-          "package_name": "com.dentallabmobile"
+          "package_name": "com.dentalsystemmobile"
         }
       },
       "oauth_client": [

@@ -18,7 +18,7 @@ https://console.firebase.google.com
 
 1. **프로젝트 개요** → **iOS 앱 추가** (⊕ 아이콘) 클릭
 2. 앱 정보 입력:
-   - **Apple 번들 ID**: `com.dentallabmobile`
+   - **Apple 번들 ID**: `com.dentalsystemmobile`
    - **앱 닉네임**: `Dental Lab Mobile`
    - **App Store ID**: (선택사항, 배포 시 추가)
 3. **앱 등록** 클릭
@@ -55,7 +55,7 @@ Xcode에서:
 
 1. **프로젝트 개요** → **Android 앱 추가** (⊕ 아이콘) 클릭
 2. 앱 정보 입력:
-   - **Android 패키지 이름**: `com.dentallabmobile`
+   - **Android 패키지 이름**: `com.dentalsystemmobile`
    - **앱 닉네임**: `Dental Lab Mobile`
    - **디버그 서명 인증서 SHA-1**: (선택사항)
 3. **앱 등록** 클릭
@@ -147,8 +147,8 @@ npm run android
 ### Firebase 연결 안 됨
 1. Firebase Console에서 앱이 올바르게 등록되었는지 확인
 2. 번들 ID / 패키지 이름이 정확한지 확인:
-   - iOS: `com.dentallabmobile`
-   - Android: `com.dentallabmobile`
+   - iOS: `com.dentalsystemmobile`
+   - Android: `com.dentalsystemmobile`
 3. 설정 파일이 올바른 위치에 있는지 확인
 
 ---
