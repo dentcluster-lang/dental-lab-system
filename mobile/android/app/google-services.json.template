@@ -1,0 +1,54 @@
+{
+  "__COMMENT__": "⚠️ 이 파일은 템플릿입니다! ⚠️",
+  "__INSTRUCTIONS__": [
+    "Firebase Console에서 실제 파일을 다운로드하세요:",
+    "1. https://console.firebase.google.com 접속",
+    "2. 프로젝트 선택",
+    "3. 프로젝트 설정 → Android 앱 추가",
+    "4. Android 패키지 이름: com.dentallabmobile",
+    "5. google-services.json 다운로드",
+    "6. 다운로드한 파일을 여기로 복사:",
+    "   cp ~/Downloads/google-services.json ~/dental-lab-system/mobile/android/app/",
+    "",
+    "참고: 이 템플릿 파일(.template)은 삭제하지 마세요.",
+    "실제 google-services.json 파일만 추가하면 됩니다."
+  ],
+  "project_info": {
+    "project_number": "YOUR_PROJECT_NUMBER",
+    "firebase_url": "https://your-project-id.firebaseio.com",
+    "project_id": "your-project-id",
+    "storage_bucket": "your-project-id.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:YOUR_PROJECT_NUMBER:android:YOUR_APP_ID",
+        "android_client_info": {
+          "package_name": "com.dentallabmobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "YOUR_CLIENT_ID.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "YOUR_API_KEY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "YOUR_CLIENT_ID.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
