@@ -1,4 +1,4 @@
-package com.dentallabmobile
+package com.dentalsystemmobile
 
 import com.facebook.react.ReactActivity
 import com.facebook.react.ReactActivityDelegate

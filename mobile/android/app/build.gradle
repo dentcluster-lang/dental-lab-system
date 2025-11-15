@@ -74,9 +74,9 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.dentallabmobile"
+    namespace "com.dentalsystemmobile"
     defaultConfig {
-        applicationId "com.dentallabmobile"
+        applicationId "com.dentalsystemmobile"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -120,3 +120,6 @@ apply from: file("../../node_modules/@react-native-community/cli-platform-androi
 
 // react-native-vector-icons
 apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle")
+
+// Google Services (Firebase)
+apply plugin: 'com.google.gms.google-services'

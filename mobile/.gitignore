@@ -59,3 +59,10 @@ fastlane/test_output
 
 # Testing
 /coverage
+
+# Firebase Config Files (NEVER commit these!)
+GoogleService-Info.plist
+google-services.json
+# Keep templates
+!GoogleService-Info.plist.template
+!google-services.json.template

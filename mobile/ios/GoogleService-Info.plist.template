@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!--
+	⚠️ 이 파일은 템플릿입니다! ⚠️
+
+	Firebase Console에서 실제 파일을 다운로드하세요:
+	1. https://console.firebase.google.com 접속
+	2. 프로젝트 선택
+	3. 프로젝트 설정 → iOS 앱 추가
+	4. Apple 번들 ID: com.dentalsystemmobile
+	5. GoogleService-Info.plist 다운로드
+	6. 이 파일(GoogleService-Info.plist.template)을
+	   다운로드한 파일로 교체하세요
+
+	다운로드 후:
+	cp ~/Downloads/GoogleService-Info.plist ~/dental-lab-system/mobile/ios/DentalLabMobile/
+
+	그리고 Xcode에서 프로젝트에 추가:
+	open ~/dental-lab-system/mobile/ios/DentalLabMobile.xcworkspace
+	→ DentalLabMobile 폴더 우클릭
+	→ Add Files to "DentalLabMobile"
+	→ GoogleService-Info.plist 선택
+	→ "Copy items if needed" 체크
+	→ Add 클릭
+	-->
+
+	<key>CLIENT_ID</key>
+	<string>YOUR_CLIENT_ID.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.YOUR_CLIENT_ID</string>
+	<key>API_KEY</key>
+	<string>YOUR_API_KEY</string>
+	<key>GCM_SENDER_ID</key>
+	<string>YOUR_SENDER_ID</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.dentalsystemmobile</string>
+	<key>PROJECT_ID</key>
+	<string>your-project-id</string>
+	<key>STORAGE_BUCKET</key>
+	<string>your-project-id.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:YOUR_SENDER_ID:ios:YOUR_IOS_APP_ID</string>
+</dict>
+</plist>
