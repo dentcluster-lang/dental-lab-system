@@ -1,0 +1,703 @@
+/* 📊 통계 페이지 스타일 */
+
+.statistics-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* 헤더 */
+.statistics-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 32px;
+    padding-bottom: 24px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.header-content h1 {
+    margin: 0 0 8px 0;
+    font-size: 32px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.header-content p {
+    margin: 0;
+    font-size: 15px;
+    color: #64748b;
+}
+
+.header-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-refresh,
+.btn-export {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-refresh {
+    background-color: #f1f5f9;
+    color: #64748b;
+}
+
+.btn-refresh:hover:not(:disabled) {
+    background-color: #e2e8f0;
+}
+
+.btn-export {
+    background-color: #059669;
+    color: white;
+}
+
+.btn-export:hover:not(:disabled) {
+    background-color: #047857;
+}
+
+.btn-refresh:disabled,
+.btn-export:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* 필터 섹션 */
+.filter-section {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding: 24px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 24px;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    min-width: 200px;
+}
+
+.filter-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #475569;
+}
+
+.date-range-picker {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.date-input {
+    padding: 10px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 14px;
+    width: 140px;
+}
+
+.filter-select {
+    padding: 10px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: #ffffff;
+    cursor: pointer;
+}
+
+/* 로딩 & 빈 상태 */
+.loading-container,
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 20px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 3px solid #e2e8f0;
+    border-top: 3px solid #6366f1;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-container p,
+.empty-state p {
+    margin-top: 16px;
+    font-size: 16px;
+    color: #64748b;
+}
+
+.empty-state h3 {
+    margin: 16px 0 8px 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.btn-reset {
+    margin-top: 16px;
+    padding: 10px 24px;
+    background-color: #6366f1;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-reset:hover {
+    background-color: #4f46e5;
+}
+
+/* 통계 카드 */
+.stats-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 32px;
+}
+
+.stat-card {
+    display: flex;
+    gap: 16px;
+    padding: 24px;
+    background-color: #ffffff;
+    border-radius: 12px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.2s;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.stat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+}
+
+.stat-card.revenue .stat-icon {
+    background-color: #dbeafe;
+    color: #2563eb;
+}
+
+.stat-card.statements .stat-icon {
+    background-color: #ddd6fe;
+    color: #7c3aed;
+}
+
+.stat-card.teeth .stat-icon {
+    background-color: #fef3c7;
+    color: #d97706;
+}
+
+.stat-card.remake .stat-icon {
+    background-color: #fee2e2;
+    color: #dc2626;
+}
+
+.stat-card.partners .stat-icon {
+    background-color: #d1fae5;
+    color: #059669;
+}
+
+.stat-content {
+    flex: 1;
+}
+
+.stat-label {
+    font-size: 13px;
+    color: #64748b;
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.stat-value {
+    font-size: 28px;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 4px;
+}
+
+.stat-sub {
+    font-size: 13px;
+    color: #94a3b8;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.growth-up {
+    color: #059669;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.growth-down {
+    color: #dc2626;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* 차트 그리드 */
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 32px;
+}
+
+.chart-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid #e2e8f0;
+}
+
+.chart-card.full-width {
+    grid-column: 1 / -1;
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.chart-header h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.chart-legend {
+    display: flex;
+    gap: 16px;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #64748b;
+}
+
+.legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.legend-dot.revenue {
+    background-color: #6366f1;
+}
+
+.legend-dot.orders {
+    background-color: #ec4899;
+}
+
+.chart-badge {
+    padding: 4px 12px;
+    background-color: #fef3c7;
+    color: #d97706;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.chart-badge.warning {
+    background-color: #fee2e2;
+    color: #dc2626;
+}
+
+/* 커스텀 툴팁 */
+.custom-tooltip {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.custom-tooltip .label {
+    margin: 0 0 8px 0;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+.custom-tooltip p {
+    margin: 4px 0;
+    font-size: 13px;
+}
+
+/* 타입 통계 상세 */
+.type-stats-details {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.type-stat-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-size: 14px;
+}
+
+.type-stat-item span:first-child {
+    font-weight: 600;
+}
+
+.type-stat-item span:last-child {
+    color: #6366f1;
+    font-weight: 700;
+}
+
+/* 🔄 리메이크 분석 섹션 */
+.remake-analysis-section {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 32px;
+}
+
+.remake-analysis-section h3 {
+    margin: 0 0 20px 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.remake-charts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+/* 리메이크율 범례 */
+.remake-rate-legend {
+    display: flex;
+    gap: 16px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #e2e8f0;
+    flex-wrap: wrap;
+}
+
+.remake-rate-legend .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: #64748b;
+}
+
+.remake-rate-legend .legend-item.high {
+    color: #dc2626;
+}
+
+.remake-rate-legend .legend-item.medium {
+    color: #f97316;
+}
+
+.remake-rate-legend .legend-item.low {
+    color: #fbbf24;
+}
+
+/* 리메이크 사유 목록 */
+.remake-reasons-list {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.reason-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+    font-size: 14px;
+}
+
+.reason-rank {
+    font-weight: 700;
+    color: #6366f1;
+    width: 30px;
+}
+
+.reason-name {
+    flex: 1;
+    font-weight: 500;
+    color: #0f172a;
+}
+
+.reason-count {
+    color: #64748b;
+}
+
+.reason-percentage {
+    font-weight: 700;
+    color: #dc2626;
+    width: 50px;
+    text-align: right;
+}
+
+/* 상세 통계 테이블 */
+.detailed-stats {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 32px;
+}
+
+.detailed-stats h3 {
+    margin: 0 0 20px 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.stats-table-container {
+    overflow-x: auto;
+}
+
+.stats-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.stats-table thead {
+    background-color: #f8fafc;
+}
+
+.stats-table th {
+    padding: 12px;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 700;
+    color: #64748b;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.stats-table td {
+    padding: 12px;
+    font-size: 14px;
+    color: #0f172a;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.stats-table tr:hover {
+    background-color: #f8fafc;
+}
+
+.stats-table .rank {
+    font-weight: 700;
+    color: #6366f1;
+}
+
+.stats-table .partner-name {
+    font-weight: 600;
+}
+
+.stats-table .revenue {
+    font-weight: 700;
+    color: #059669;
+}
+
+/* 리메이크율 색상 구분 */
+.stats-table .remake-high {
+    font-weight: 700;
+    color: #dc2626;
+}
+
+.stats-table .remake-medium {
+    font-weight: 700;
+    color: #f97316;
+}
+
+.stats-table .remake-low {
+    font-weight: 700;
+    color: #10b981;
+}
+
+.stats-table .remake-detail {
+    font-size: 12px;
+    color: #94a3b8;
+    margin-left: 4px;
+}
+
+/* 인사이트 섹션 */
+.insights-section {
+    background-color: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    border: 1px solid #e2e8f0;
+}
+
+.insights-section h3 {
+    margin: 0 0 20px 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.insights-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.insight-card {
+    display: flex;
+    gap: 16px;
+    padding: 20px;
+    background-color: #f8fafc;
+    border-radius: 12px;
+    border: 2px solid #e2e8f0;
+}
+
+.insight-card.success {
+    background-color: #f0fdf4;
+    border-color: #bbf7d0;
+}
+
+.insight-card.warning {
+    background-color: #fef3c7;
+    border-color: #fde047;
+}
+
+.insight-card.info {
+    background-color: #dbeafe;
+    border-color: #bfdbfe;
+}
+
+.insight-icon {
+    width: 40px;
+    height: 40px;
+    color: #6366f1;
+}
+
+.insight-card.success .insight-icon {
+    color: #059669;
+}
+
+.insight-card.warning .insight-icon {
+    color: #d97706;
+}
+
+.insight-card.info .insight-icon {
+    color: #2563eb;
+}
+
+.insight-content h4 {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #64748b;
+}
+
+.insight-content p {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    font-weight: 700;
+    color: #0f172a;
+}
+
+.insight-value {
+    font-size: 13px;
+    color: #6366f1;
+    font-weight: 600;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 1024px) {
+    .charts-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .chart-card.full-width {
+        grid-column: 1;
+    }
+
+    .remake-charts-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .statistics-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+    
+    .filter-section {
+        flex-direction: column;
+    }
+    
+    .filter-group {
+        width: 100%;
+    }
+    
+    .stats-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .insights-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .remake-charts-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* React DatePicker 커스터마이징 */
+.react-datepicker-wrapper {
+    width: auto;
+}
+
+.react-datepicker__input-container input {
+    width: 140px;
+}
