@@ -1,0 +1,381 @@
+/* 당근마켓 스타일 심플한 중고물품 등록 CSS */
+@import url('https://fonts.googleapis.com/css2?family=Pretendard:wght@400;500;600;700&display=swap');
+
+/* 전체 컨테이너 */
+.simple-registration {
+    max-width: 600px;
+    margin: 0 auto;
+    background: #ffffff;
+    min-height: 100vh;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+}
+
+/* 로딩 화면 */
+.simple-loading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    gap: 16px;
+}
+
+.simple-loading .spinner {
+    animation: spin 1s linear infinite;
+    color: #10b981;
+}
+
+.simple-loading p {
+    margin: 0;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+/* 헤더 */
+.simple-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    background: white;
+    border-bottom: 1px solid #f3f4f6;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.simple-header .back-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #374151;
+    transition: background 0.2s;
+    border-radius: 50%;
+}
+
+.simple-header .back-btn:hover {
+    background: #f9fafb;
+}
+
+.simple-header h1 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #111827;
+}
+
+/* 폼 */
+.simple-form {
+    padding: 20px 16px 80px;
+}
+
+/* 사진 업로드 섹션 */
+.photo-section {
+    margin-bottom: 24px;
+}
+
+.photo-list {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+}
+
+.photo-list::-webkit-scrollbar {
+    display: none;
+}
+
+.add-photo-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s;
+    flex-shrink: 0;
+}
+
+.add-photo-btn:hover {
+    background: #f3f4f6;
+}
+
+.add-photo-btn svg {
+    color: #9ca3af;
+    margin-bottom: 4px;
+}
+
+.add-photo-btn span {
+    font-size: 13px;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.photo-item {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 1px solid #e5e7eb;
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.photo-item .badge {
+    position: absolute;
+    bottom: 4px;
+    left: 4px;
+    right: 4px;
+    padding: 2px 6px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    font-size: 11px;
+    font-weight: 500;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.photo-item .remove-btn {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.photo-item .remove-btn:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.photo-help {
+    margin: 8px 0 0;
+    font-size: 13px;
+    color: #9ca3af;
+}
+
+/* 입력 그룹 */
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group input[type="text"],
+.input-group input[type="tel"],
+.input-group select,
+.input-group textarea {
+    width: 100%;
+    padding: 16px;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #111827;
+    transition: border-color 0.2s;
+    font-family: inherit;
+}
+
+.input-group input::placeholder,
+.input-group textarea::placeholder {
+    color: #9ca3af;
+    font-weight: 400;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+    outline: none;
+    border-color: #10b981;
+}
+
+.input-group select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 44px;
+}
+
+.input-group textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.5;
+}
+
+/* 가격 입력 */
+.price-input {
+    position: relative;
+    margin-bottom: 12px;
+}
+
+.price-input .won {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    font-weight: 500;
+    color: #6b7280;
+}
+
+.price-input input {
+    padding-left: 40px !important;
+    font-size: 18px !important;
+    font-weight: 600 !important;
+}
+
+/* 체크박스 */
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.checkbox input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    accent-color: #10b981;
+}
+
+.checkbox span {
+    font-size: 15px;
+    font-weight: 500;
+    color: #374151;
+}
+
+/* 위치 입력 */
+.location-input {
+    position: relative;
+}
+
+.location-input svg {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #9ca3af;
+}
+
+.location-input input {
+    padding-left: 44px !important;
+}
+
+/* 안내 */
+.notice {
+    padding: 16px;
+    background: #f9fafb;
+    border-radius: 8px;
+    margin-bottom: 24px;
+}
+
+.notice p {
+    margin: 0 0 8px;
+    font-size: 14px;
+    color: #6b7280;
+    line-height: 1.5;
+}
+
+.notice p:last-child {
+    margin-bottom: 0;
+}
+
+/* 제출 버튼 */
+.submit-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 16px;
+    background: #10b981;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.submit-btn:hover:not(:disabled) {
+    background: #059669;
+}
+
+.submit-btn:disabled {
+    background: #e5e7eb;
+    color: #9ca3af;
+    cursor: not-allowed;
+}
+
+.submit-btn .spinner {
+    animation: spin 1s linear infinite;
+}
+
+/* 애니메이션 */
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* 반응형 */
+@media (max-width: 640px) {
+    .simple-registration {
+        max-width: 100%;
+    }
+
+    .simple-form {
+        padding: 16px 16px 60px;
+    }
+
+    .photo-list {
+        gap: 8px;
+    }
+
+    .add-photo-btn,
+    .photo-item {
+        width: 72px;
+        height: 72px;
+    }
+}
+
+@media (min-width: 641px) {
+    .simple-registration {
+        margin: 20px auto;
+        border-radius: 16px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+    }
+
+    .simple-header {
+        border-radius: 16px 16px 0 0;
+    }
+}

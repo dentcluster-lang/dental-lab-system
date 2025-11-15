@@ -1,0 +1,180 @@
+/* SellerApplication.css */
+
+/* 애니메이션 */
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 컨테이너 애니메이션 */
+.seller-application-container {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* 입력 필드 포커스 */
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #8b5cf6 !important;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+/* 라디오 버튼 호버 */
+label:has(input[type="radio"]):hover {
+    background-color: #f8fafc;
+    border-color: #cbd5e1;
+}
+
+label:has(input[type="radio"]:checked) {
+    background-color: #f5f3ff;
+    border-color: #8b5cf6;
+}
+
+/* 카테고리 버튼 호버 */
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* 스텝 활성화 애니메이션 */
+.step-active .step-number {
+    background-color: #8b5cf6 !important;
+    color: #ffffff !important;
+    box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.1);
+}
+
+/* 버튼 비활성화 */
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none !important;
+}
+
+button:disabled:hover {
+    box-shadow: none !important;
+}
+
+/* 플레이스홀더 */
+input::placeholder,
+textarea::placeholder {
+    color: #94a3b8;
+}
+
+/* 텍스트 에어리어 스크롤바 */
+textarea::-webkit-scrollbar {
+    width: 8px;
+}
+
+textarea::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 4px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 4px;
+}
+
+textarea::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .seller-application-container {
+        padding: 20px 16px !important;
+    }
+
+    .seller-application-container > div {
+        padding: 24px 20px !important;
+    }
+
+    .row {
+        grid-template-columns: 1fr !important;
+    }
+
+    .category-grid {
+        grid-template-columns: 1fr 1fr !important;
+    }
+
+    .button-group {
+        flex-direction: column !important;
+    }
+
+    .button-group button {
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .stepper {
+        padding: 0 10px;
+    }
+
+    .step-label {
+        font-size: 10px !important;
+    }
+
+    .step-line {
+        width: 40px !important;
+    }
+
+    .category-grid {
+        grid-template-columns: 1fr !important;
+    }
+}
+
+/* 추가 유틸리티 */
+.text-center {
+    text-align: center;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+/* 툴팁 효과 */
+[title] {
+    position: relative;
+}
+
+/* 선택 효과 */
+::selection {
+    background-color: #ddd6fe;
+    color: #5b21b6;
+}
+
+/* 링크 스타일 */
+a {
+    color: #8b5cf6;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+a:hover {
+    color: #7c3aed;
+    text-decoration: underline;
+}
