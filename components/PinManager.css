@@ -1,0 +1,364 @@
+/* PIN Manager 전체 컨테이너 */
+.pin-manager {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* 헤더 */
+.pin-manager-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #F0F2F5;
+}
+
+.pin-header-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #0084FF, #00A3FF);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.pin-header-text h3 {
+    margin: 0 0 6px 0;
+    font-size: 20px;
+    font-weight: 700;
+    color: #1C1E21;
+}
+
+.pin-header-text p {
+    margin: 0;
+    font-size: 14px;
+    color: #65676B;
+    line-height: 1.5;
+}
+
+/* 메시지 (성공/에러) */
+.pin-message {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.pin-message.success {
+    background: #E7F6EC;
+    border: 1px solid #C3E6CB;
+    color: #1E7E34;
+}
+
+.pin-message.error {
+    background: #FFE5E5;
+    border: 1px solid #FFC9C9;
+    color: #FF3B30;
+}
+
+.pin-message svg {
+    flex-shrink: 0;
+}
+
+/* PIN 상태 */
+.pin-status {
+    background: #F7F9FA;
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 24px;
+}
+
+.pin-status-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.pin-status-info > svg {
+    color: #0084FF;
+}
+
+.pin-status-label {
+    font-size: 13px;
+    color: #65676B;
+    margin-bottom: 4px;
+}
+
+.pin-status-value {
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.pin-status-value.active {
+    color: #34C759;
+}
+
+.pin-status-value.inactive {
+    color: #FF9500;
+}
+
+/* PIN 섹션 */
+.pin-section {
+    margin-bottom: 24px;
+}
+
+/* PIN 설정/변경 버튼 */
+.btn-pin-setup {
+    width: 100%;
+    padding: 14px 20px;
+    border-radius: 8px;
+    border: none;
+    background: #0084FF;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-pin-setup:hover {
+    background: #0077E6;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(0, 132, 255, 0.3);
+}
+
+/* PIN 액션 버튼들 */
+.pin-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.btn-pin-change,
+.btn-pin-delete {
+    flex: 1;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.btn-pin-change {
+    background: #0084FF;
+    color: white;
+}
+
+.btn-pin-change:hover {
+    background: #0077E6;
+}
+
+.btn-pin-delete {
+    background: white;
+    color: #FF3B30;
+    border: 2px solid #FF3B30;
+}
+
+.btn-pin-delete:hover:not(:disabled) {
+    background: #FFF5F5;
+}
+
+.btn-pin-delete:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* PIN 폼 */
+.pin-form {
+    background: #F7F9FA;
+    border-radius: 8px;
+    padding: 20px;
+}
+
+.pin-form h4 {
+    margin: 0 0 20px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1C1E21;
+}
+
+/* 폼 그룹 */
+.form-group {
+    margin-bottom: 16px;
+}
+
+.form-group:last-of-type {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1C1E21;
+}
+
+/* PIN 입력 래퍼 */
+.pin-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.pin-input-field {
+    flex: 1;
+    padding: 12px 48px 12px 16px;
+    border: 2px solid #CED0D4;
+    border-radius: 8px;
+    font-size: 18px;
+    font-weight: 600;
+    letter-spacing: 8px;
+    text-align: center;
+    color: #1C1E21;
+    background: white;
+    transition: all 0.2s;
+}
+
+.pin-input-field:focus {
+    outline: none;
+    border-color: #0084FF;
+    box-shadow: 0 0 0 3px rgba(0, 132, 255, 0.1);
+}
+
+.pin-input-field::placeholder {
+    letter-spacing: 4px;
+}
+
+/* PIN 보기/숨기기 버튼 */
+.btn-toggle-pin {
+    position: absolute;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    border: none;
+    background: transparent;
+    color: #65676B;
+    cursor: pointer;
+    transition: all 0.15s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-toggle-pin:hover {
+    background: #E4E6EB;
+    color: #1C1E21;
+}
+
+/* 폼 액션 버튼 */
+.pin-form-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.btn-pin-cancel,
+.btn-pin-submit {
+    flex: 1;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-pin-cancel {
+    background: white;
+    color: #1C1E21;
+    border: 2px solid #CED0D4;
+}
+
+.btn-pin-cancel:hover:not(:disabled) {
+    background: #F0F2F5;
+}
+
+.btn-pin-submit {
+    background: #0084FF;
+    color: white;
+}
+
+.btn-pin-submit:hover:not(:disabled) {
+    background: #0077E6;
+}
+
+.btn-pin-cancel:disabled,
+.btn-pin-submit:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* 안내 사항 */
+.pin-notice {
+    display: flex;
+    gap: 12px;
+    padding: 16px;
+    background: #FFF8E1;
+    border: 1px solid #FFE082;
+    border-radius: 8px;
+    color: #F57C00;
+    font-size: 13px;
+}
+
+.pin-notice svg {
+    flex-shrink: 0;
+    margin-top: 2px;
+}
+
+.pin-notice strong {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.pin-notice ul {
+    margin: 0;
+    padding-left: 20px;
+    line-height: 1.6;
+}
+
+.pin-notice li {
+    margin-bottom: 4px;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+    .pin-manager {
+        padding: 16px;
+    }
+
+    .pin-manager-header {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .pin-actions {
+        flex-direction: column;
+    }
+
+    .pin-form {
+        padding: 16px;
+    }
+}
