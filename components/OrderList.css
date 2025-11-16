@@ -1,0 +1,491 @@
+/* 주문 타입 탭 */
+.order-type-tabs {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 24px;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 0;
+}
+
+.tab-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: none;
+    border: none;
+    border-bottom: 3px solid transparent;
+    color: #6b7280;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    margin-bottom: -2px;
+}
+
+.tab-button:hover {
+    color: #2563eb;
+    background: #eff6ff;
+}
+
+.tab-button.active {
+    color: #2563eb;
+    border-bottom-color: #2563eb;
+    background: #eff6ff;
+}
+
+.tab-button svg {
+    flex-shrink: 0;
+}
+
+/* 구분 뱃지 (발신/수신) */
+.order-type-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.order-type-badge.sent {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.order-type-badge.received {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.order-type-badge svg {
+    flex-shrink: 0;
+}
+
+/* 기존 스타일 유지 */
+.order-list-container {
+    padding: 24px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.header-left > svg {
+    color: #2563eb;
+}
+
+.header-left h1 {
+    margin: 0;
+    font-size: 28px;
+    color: #111827;
+}
+
+.header-left p {
+    margin: 4px 0 0 0;
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.btn-primary {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-primary:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.filters-section {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.search-box {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+}
+
+.search-box svg {
+    color: #9ca3af;
+}
+
+.search-box input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 15px;
+}
+
+.filter-controls {
+    display: flex;
+    gap: 12px;
+}
+
+.filter-select {
+    padding: 12px 16px;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    min-width: 140px;
+}
+
+.orders-grid {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.orders-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.orders-table thead {
+    background: #f9fafb;
+}
+
+.orders-table th {
+    padding: 16px;
+    text-align: left;
+    font-size: 13px;
+    font-weight: 600;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.orders-table tbody tr {
+    border-bottom: 1px solid #f3f4f6;
+    transition: background 0.2s;
+}
+
+.orders-table tbody tr:hover {
+    background: #f9fafb;
+}
+
+.orders-table td {
+    padding: 16px;
+    font-size: 14px;
+    color: #374151;
+}
+
+.order-number {
+    font-weight: 600;
+    color: #2563eb;
+}
+
+.patient-name {
+    font-weight: 500;
+}
+
+.partner-name {
+    color: #6b7280;
+}
+
+.date-cell {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #6b7280;
+}
+
+.date-cell svg {
+    flex-shrink: 0;
+}
+
+.items-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.item-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    background: #f3f4f6;
+    border-radius: 4px;
+    font-size: 12px;
+    color: #374151;
+    white-space: nowrap;
+}
+
+.item-tag.more {
+    background: #dbeafe;
+    color: #1e40af;
+    font-weight: 500;
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.status-badge.pending {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.status-badge.in_progress {
+    background: #dbeafe;
+    color: #1e40af;
+}
+
+.status-badge.completed {
+    background: #d1fae5;
+    color: #065f46;
+}
+
+.status-badge.cancelled {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+.status-select {
+    padding: 8px 12px;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.btn-action {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-action.view {
+    background: #eff6ff;
+    color: #1e40af;
+}
+
+.btn-action.view:hover {
+    background: #dbeafe;
+}
+
+.btn-action.chat {
+    background: #f0fdf4;
+    color: #166534;
+}
+
+.btn-action.chat:hover {
+    background: #dcfce7;
+}
+
+.btn-action.delete {
+    background: #fef2f2;
+    color: #991b1b;
+}
+
+.btn-action.delete:hover {
+    background: #fee2e2;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 80px 20px;
+    color: #6b7280;
+}
+
+.empty-state svg {
+    margin-bottom: 16px;
+    opacity: 0.3;
+}
+
+.empty-state h3 {
+    margin: 0 0 8px 0;
+    font-size: 20px;
+    color: #374151;
+}
+
+.empty-state p {
+    margin: 0 0 24px 0;
+}
+
+.btn-create-order {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-create-order:hover {
+    background: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+.loading-state,
+.error-state {
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.loading-state svg {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.error-state {
+    color: #991b1b;
+}
+
+.error-state svg {
+    margin-bottom: 16px;
+}
+
+.error-state h3 {
+    margin: 0 0 8px 0;
+    font-size: 20px;
+}
+
+.error-state p {
+    margin: 0 0 24px 0;
+    color: #6b7280;
+}
+
+.btn-secondary {
+    padding: 10px 20px;
+    background: #f3f4f6;
+    color: #374151;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.text-muted {
+    color: #9ca3af;
+    font-style: italic;
+}
+
+/* 반응형 */
+@media (max-width: 768px) {
+    .order-type-tabs {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .tab-button {
+        flex-shrink: 0;
+        padding: 10px 16px;
+        font-size: 14px;
+    }
+
+    .filters-section {
+        flex-direction: column;
+    }
+
+    .filter-controls {
+        flex-direction: column;
+    }
+
+    .filter-select {
+        width: 100%;
+    }
+
+    .orders-table {
+        display: block;
+    }
+
+    .orders-table thead {
+        display: none;
+    }
+
+    .orders-table tbody,
+    .orders-table tr,
+    .orders-table td {
+        display: block;
+    }
+
+    .orders-table tr {
+        margin-bottom: 16px;
+        border: 1px solid #e5e7eb;
+        border-radius: 8px;
+        padding: 16px;
+    }
+
+    .orders-table td {
+        padding: 8px 0;
+        border: none;
+    }
+
+    .orders-table td:before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: #6b7280;
+        display: block;
+        margin-bottom: 4px;
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+
+    .action-buttons {
+        flex-wrap: wrap;
+    }
+}

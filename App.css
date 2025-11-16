@@ -1,0 +1,108 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* 모바일 반응형 */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  h1 { font-size: 24px !important; }
+  h2 { font-size: 22px !important; }
+  h3 { font-size: 18px !important; }
+  
+  button {
+    padding: 12px 20px !important;
+    font-size: 14px !important;
+  }
+  
+  .container {
+    padding: 16px !important;
+  }
+  
+  /* 헤더 반응형 */
+  .header {
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+  
+  /* 탭 반응형 */
+  .tabs {
+    overflow-x: auto;
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+  }
+  
+  h1 { font-size: 20px !important; }
+  h2 { font-size: 18px !important; }
+  h3 { font-size: 16px !important; }
+  
+  /* 치아 차트 */
+  .tooth {
+    width: 35px !important;
+    height: 35px !important;
+    font-size: 10px !important;
+    padding: 4px 2px !important;
+  }
+  
+  /* 카드 패딩 */
+  .card {
+    padding: 16px !important;
+  }
+  
+  /* 그리드 간격 */
+  .grid {
+    gap: 12px !important;
+  }
+}
+
+/* 프린트 스타일 */
+@media print {
+  button {
+    display: none !important;
+  }
+  
+  .no-print {
+    display: none !important;
+  }
+}
