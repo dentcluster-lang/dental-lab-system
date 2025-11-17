@@ -1,0 +1,96 @@
+/* SellerApplicationStatus.css */
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.application-status-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* 버튼 호버 효과 */
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s;
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* 배지 호버 */
+.category-badge {
+    transition: all 0.2s;
+}
+
+.category-badge:hover {
+    transform: scale(1.05);
+}
+
+/* 반응형 디자인 */
+@media (max-width: 768px) {
+    .application-status-container {
+        padding: 20px 16px;
+    }
+
+    .status-header {
+        flex-direction: column;
+        text-align: center;
+        padding: 24px 20px !important;
+    }
+
+    .status-title {
+        font-size: 24px !important;
+    }
+
+    .info-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    .section {
+        padding: 20px 16px !important;
+    }
+}
+
+/* 애니메이션 */
+.section {
+    animation: fadeIn 0.5s ease-out;
+}
+
+.section:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.section:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.section:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+/* 선택 효과 */
+::selection {
+    background-color: #ddd6fe;
+    color: #5b21b6;
+}

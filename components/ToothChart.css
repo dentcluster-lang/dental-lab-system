@@ -1,0 +1,443 @@
+/* ========== 미니 치아 차트 (OrderList용) ========== */
+.tooth-chart-mini {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px;
+    background: #f9fafb;
+    border-radius: 8px;
+    min-width: 180px;
+}
+
+.jaw-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.teeth-row {
+    display: flex;
+    gap: 2px;
+}
+
+.center-line {
+    width: 2px;
+    height: 16px;
+    background: #e5e7eb;
+    margin: 0 2px;
+}
+
+.tooth-mini {
+    width: 16px;
+    height: 16px;
+    background: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.2s;
+    cursor: default;
+}
+
+.tooth-mini.selected {
+    background: #2563eb;
+    border-color: #1e40af;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+.tooth-mini .tooth-number {
+    font-size: 8px;
+    color: white;
+    font-weight: 600;
+}
+
+.tooth-mini:hover {
+    transform: scale(1.15);
+    z-index: 10;
+}
+
+/* ========== 상세 치아 차트 (ViewOrder용) ========== */
+.tooth-chart-detailed {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.chart-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.chart-header h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #111827;
+}
+
+.selected-count {
+    margin: 0;
+    font-size: 14px;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.chart-body {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.jaw-section {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.jaw-section.upper .jaw-container {
+    order: 2;
+}
+
+.jaw-section.upper .jaw-label {
+    order: 1;
+    text-align: center;
+}
+
+.jaw-section.lower .jaw-container {
+    order: 1;
+}
+
+.jaw-section.lower .jaw-label {
+    order: 2;
+    text-align: center;
+}
+
+.jaw-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #6b7280;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.jaw-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    padding: 16px;
+    background: #f9fafb;
+    border-radius: 12px;
+}
+
+.teeth-row-detailed {
+    display: flex;
+    gap: 8px;
+}
+
+.center-divider {
+    width: 3px;
+    height: 60px;
+    background: linear-gradient(to bottom, #e5e7eb, #9ca3af, #e5e7eb);
+    border-radius: 2px;
+}
+
+.tooth-detailed {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tooth-icon {
+    width: 40px;
+    height: 50px;
+    background: #ffffff;
+    border: 2px solid #d1d5db;
+    border-radius: 6px 6px 12px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    cursor: pointer;
+    position: relative;
+}
+
+.tooth-detailed.selected .tooth-icon {
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    border-color: #1e40af;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+    transform: translateY(-2px);
+}
+
+.tooth-number-label {
+    font-size: 14px;
+    font-weight: 700;
+    color: white;
+}
+
+.tooth-number-gray {
+    font-size: 11px;
+    color: #9ca3af;
+    font-weight: 500;
+}
+
+/* 치아 호버 시 정보 팝업 */
+.tooth-info-popup {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 8px;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    z-index: 100;
+    min-width: 180px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+}
+
+.tooth-detailed:hover .tooth-info-popup {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.info-item {
+    padding: 8px 0;
+}
+
+.info-item:not(:last-child) {
+    border-bottom: 1px solid #f3f4f6;
+}
+
+.prosthesis-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: #111827;
+    margin-bottom: 6px;
+}
+
+.shade-info {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+}
+
+.shade-label {
+    font-size: 12px;
+    color: #6b7280;
+    background: #dbeafe;
+    padding: 2px 8px;
+    border-radius: 4px;
+}
+
+.shade-value {
+    font-size: 13px;
+    font-weight: 600;
+    color: #2563eb;
+}
+
+.material-info {
+    font-size: 12px;
+    color: #6b7280;
+    margin-top: 4px;
+}
+
+/* ========== 선택된 치아 상세 정보 ========== */
+.selected-teeth-details {
+    margin-top: 32px;
+    padding-top: 24px;
+    border-top: 2px solid #e5e7eb;
+}
+
+.selected-teeth-details h4 {
+    margin: 0 0 16px 0;
+    font-size: 18px;
+    color: #111827;
+}
+
+.teeth-details-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
+}
+
+.tooth-detail-card {
+    background: #f9fafb;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 16px;
+    transition: all 0.2s;
+}
+
+.tooth-detail-card:hover {
+    border-color: #2563eb;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.15);
+}
+
+.tooth-detail-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.tooth-icon-small {
+    font-size: 20px;
+}
+
+.tooth-number-big {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2563eb;
+}
+
+.tooth-detail-body {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.detail-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+}
+
+.detail-label {
+    font-size: 13px;
+    color: #6b7280;
+    font-weight: 500;
+}
+
+.detail-value {
+    font-size: 14px;
+    color: #111827;
+    font-weight: 600;
+}
+
+.detail-value.shade {
+    background: #dbeafe;
+    color: #1e40af;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 13px;
+}
+
+/* ========== OrderList에서 사용할 인라인 치아 표시 ========== */
+.tooth-chart-inline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 8px;
+    background: #f0f7ff;
+    border: 1px solid #bfdbfe;
+    border-radius: 6px;
+}
+
+.tooth-chart-inline .tooth-mini-inline {
+    width: 12px;
+    height: 12px;
+    background: #2563eb;
+    border-radius: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tooth-chart-inline .tooth-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #1e40af;
+}
+
+/* ========== 반응형 ========== */
+@media (max-width: 768px) {
+    .tooth-chart-detailed {
+        padding: 16px;
+    }
+
+    .chart-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+
+    .jaw-container {
+        padding: 12px;
+    }
+
+    .teeth-row-detailed {
+        gap: 4px;
+    }
+
+    .tooth-icon {
+        width: 32px;
+        height: 40px;
+    }
+
+    .tooth-number-label {
+        font-size: 12px;
+    }
+
+    .center-divider {
+        height: 40px;
+    }
+
+    .teeth-details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tooth-info-popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        max-width: 300px;
+    }
+}
+
+/* ========== 애니메이션 ========== */
+@keyframes toothPulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.tooth-detailed.selected .tooth-icon {
+    animation: toothPulse 2s ease-in-out infinite;
+}
+
+/* ========== 프린트 스타일 ========== */
+@media print {
+    .tooth-chart-detailed {
+        box-shadow: none;
+        border: 1px solid #e5e7eb;
+    }
+
+    .tooth-info-popup {
+        display: none;
+    }
+
+    .tooth-detailed.selected .tooth-icon {
+        animation: none;
+    }
+}
